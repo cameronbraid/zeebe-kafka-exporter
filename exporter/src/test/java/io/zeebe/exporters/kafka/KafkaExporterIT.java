@@ -111,6 +111,8 @@ public class KafkaExporterIT {
           assertThat(producedRecord).isInstanceOf(Message.class);
           break;
         }
+      default:
+        throw new RuntimeException("unknown format " + format);
     }
   }
 
