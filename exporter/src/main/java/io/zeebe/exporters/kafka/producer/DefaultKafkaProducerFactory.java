@@ -82,7 +82,10 @@ public final class DefaultKafkaProducerFactory implements KafkaProducerFactory {
         options.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, ProtobufRecordSerializer.class);
         break;
       default:
-        throw new IllegalArgumentException(String.format("Expected format to be one of JSON or PROTOBUF, but got %s", config.getProducer().getFormat()));
+        throw new IllegalArgumentException(
+            String.format(
+                "Expected format to be one of JSON or PROTOBUF, but got %s",
+                config.getProducer().getFormat()));
     }
 
     return new KafkaProducer<>(options);
